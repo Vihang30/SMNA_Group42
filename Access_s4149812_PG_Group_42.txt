@@ -1,0 +1,27 @@
+Assignment 2 — how to access our code
+=====================================
+
+GitHub URL: https://github.com/Vihang30/SMNA_Group42.git
+Branch: main
+
+Reproduce our results
+---------------------
+1. Clone the repo
+2. python -m venv venv
+3. venv\Scripts\activate          (Windows)
+   source venv/bin/activate       (macOS / Linux)
+4. pip install -r requirements.txt
+5. python run_pipeline.py --collect
+      (first time — PullPush scrape, ~30–60 minutes)
+   OR python run_pipeline.py --skip-collect
+      (if data/raw/ is present locally)
+
+Submission includes data/sample/ (under 10 MB, hopefully). Outputs are in outputs/figures/ and outputs/tables/.
+Optional notebook: notebooks/01_run_analysis.ipynb (same workflow as run_pipeline.py).
+
+Team
+----
+- Vihang Mehere — s4149812 (group leader)
+- Siddhant Kripal — s4184755
+
+Leader contact: s4149812@student.rmit.edu.au

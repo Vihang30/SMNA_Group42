@@ -1,0 +1,71 @@
+project:
+  title: "How do AI Communities react to new AI releases"
+  description: >
+    Compare sentiment, topics, and user interaction networks across AI-focused
+    subreddits around major model release windows.
+
+subreddits:
+  - MachineLearning
+  - LocalLLaMA
+  - ChatGPT
+  - artificial
+  - OpenAI
+
+# each release: announcement date (UTC unix) drives pre / peak / post labels
+releases:
+  - id: llama3
+    name: "Meta Llama 3"
+    announcement_utc: 1712160000  # 3 Apr 2024
+    search_queries:
+      - "Llama 3"
+      - "llama3"
+    pre_days: 7
+    post_days: 14
+
+  - id: gpt4o
+    name: "OpenAI GPT-4o"
+    announcement_utc: 1715817600  # 16 May 2024
+    search_queries:
+      - "GPT-4o"
+      - "gpt4o"
+    pre_days: 7
+    post_days: 14
+
+  - id: claude35
+    name: "Anthropic Claude 3.5 Sonnet"
+    announcement_utc: 1718668800  # 18 Jun 2024
+    search_queries:
+      - "Claude 3.5"
+      - "claude 3.5 sonnet"
+    pre_days: 7
+    post_days: 14
+
+collection:
+  # PullPush — no Reddit account needed
+  pullpush_base: "https://api.pullpush.io/reddit/search"
+  submissions_per_query: 150
+  comments_per_submission: 80
+  max_submissions_for_comments: 250
+  request_delay_seconds: 0.6
+
+preprocessing:
+  min_comment_length: 15
+  min_user_comments: 1
+  remove_deleted_authors: true
+
+nlp:
+  max_features_lda: 500
+  n_topics: 8
+  random_state: 42
+
+network:
+  min_shared_posts: 1
+  min_edge_weight: 1
+  max_users: 1200
+
+paths:
+  raw_dir: data/raw
+  processed_dir: data/processed
+  sample_dir: data/sample
+  figures_dir: outputs/figures
+  tables_dir: outputs/tables

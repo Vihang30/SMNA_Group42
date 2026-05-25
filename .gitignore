@@ -1,0 +1,13 @@
+.env
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+data/raw/*.csv
+data/raw/*.json
+!data/sample/
+# Generated outputs (commit after running pipeline for submission)
+# outputs/
+*.log
+.DS_Store
+venv/
+.venv/
